@@ -1,0 +1,50 @@
+Q1:-sub string 
+for _ in range(int(input())):
+    s=input()
+    k=int(input())
+    l=len(s)
+    i=0
+    f=[]
+    while i<len(s):
+        f.append(s[i:i+k])
+        i+=k
+    print(f)
+
+Q2:-  contiguous elements sum which is equal to k
+def fun2(l,k):
+    x=[]
+    for i in range(len(l)):
+        s=0
+
+        for j in range(i,len(l)):
+            s+=l[j]
+            if s<=k:
+                x.append(l[j])
+            else:
+                break
+        if sum(x)==k:
+            break
+        else:
+            x=[]
+    if len(x)>0:
+        return x
+    else:
+        return None
+
+
+l=eval(input())
+k=int(input())
+print(fun2(l,k))
+
+Q3:- Non-decreasing array or not
+
+def fun3(l):
+    p=-1
+    for i in range(len(l)-1):
+        if l[i]>l[i+1]:
+            if p!=-1:
+                return False
+            p=i
+    return (p==0 or p==-1  or p==len(l)-2 or l[p-1]<=l[p+1] or l[p]<=l[p+2])
+l=eval(input())
+print(fun3(l))
